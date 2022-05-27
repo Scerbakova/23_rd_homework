@@ -1,19 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const animalSlice = createSlice({
-  name: 'shop',
+  name: 'animal',
   initialState: {
-    items: [],
+    animals: localStorage.getItem('animals') ? JSON.parse(localStorage.getItem('animals') || '{}') : [],
   },
   reducers: {
-    addAnimal: (state, action) => {
-
+    addAnimalInfo: (state, action) => {
+      state.animals = [...state.animals, action.payload];
+      localStorage.setItem('animals', JSON.stringify(state.animals));
     },
   },
 });
 
 export const {
-  addAnimal,
+  addAnimalInfo,
 } = animalSlice.actions;
 
 export default animalSlice.reducer;

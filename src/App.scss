@@ -1,9 +1,42 @@
 @import "./additional/reset.scss";
 
+.header {
+  background-color: rgb(188, 229, 229);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.animal__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1600px;
+  background-color: rgb(228, 202, 202);
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+.button {
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: rgb(177, 219, 226);
+  box-shadow: 2px 2px 10px rgb(64, 130, 204);
+  transition: 0.3s;
+}
+.button:hover {
+  background-color: rgb(149, 178, 184);
+  box-shadow: 1px 1px 2px rgb(64, 130, 204);
+}
+.add__animals {
+  position: absolute;
+  bottom: 5%;
+}
 .modal {
   height: 100vh;
   width: 100vw;
-  background-color: rgba(223, 195, 195, 0.233);
+  background-color: rgba(71, 59, 59, 0.452);
   position: fixed;
   top: 0;
   left: 0;
@@ -25,13 +58,36 @@
   width: fit-content;
   border-radius: 6px;
   box-shadow: 2px 2px 10px rgb(146, 132, 132);
-  text-align: center;
+  position: relative;
+}
+.add__animals, .add {
+  position: absolute;
+  bottom: 5%;
 }
 .form {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
 }
-.form__input:not(:last-child) {
+.label {
+  margin-bottom: 20px;
+}
+.form__input {
   margin-bottom: 40px;
+}
+.add__species{
+  text-decoration: underline;
+}
+.select {
+  width: 100%;
+}
+.animal--card__wrapper {
+  padding: 20px;
+  box-shadow: 2px 2px 10px rgb(146, 132, 132);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.image {
+  max-width: 200px;
 }
