@@ -3,7 +3,7 @@ import animalSlice from './store/reducers/animalSlice';
 
 export const store = configureStore({
   reducer: {
-    shop: animalSlice,
+    animals: animalSlice,
   },
 });
 
