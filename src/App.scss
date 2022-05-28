@@ -5,10 +5,9 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 1600px;
   background-color: rgb(228, 202, 202);
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 306px);
   position: relative;
   justify-content: center;
   font-size: 28px;
@@ -21,7 +20,10 @@
   display: flex;
   justify-content: center;
   padding: 20px;
-  max-width: 1600px;
+}
+.logo {
+  border: none;
+  background-color: inherit;
 }
 .no__data {
   text-transform: uppercase;

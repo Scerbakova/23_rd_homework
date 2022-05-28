@@ -1,4 +1,5 @@
 import React, {
+  useEffect,
   useState,
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,12 +33,21 @@ const Animals = () => {
   const input = useSelector((state: RootState) => state.animals.input);
 
   const breedsInputRef = React.useRef<HTMLInputElement>(null);
+  const nameInputRef = React.useRef<HTMLInputElement>(null);
   const breedsSelectInputRef = React.useRef<HTMLSelectElement>(null);
 
   const breedsArray = animals.map((animal: { animalBreeds: string }) => animal.animalBreeds);
   const breedsWithoutDuplicates = () => breedsArray.filter(
     (breed: string, index: number) => breedsArray.indexOf(breed) === index,
   );
+
+  useEffect(() => {
+    nameInputRef.current?.focus();
+  }, [modalActive]);
+
+  useEffect(() => {
+    breedsInputRef.current?.focus();
+  }, []);
 
   return (
     <div className="animal__wrapper">
@@ -80,7 +90,9 @@ const Animals = () => {
       </div>
       <div className="add__animals">
         <Button
-          onAdd={() => setModalActive(true)}
+          onAdd={() => {
+            setModalActive(true);
+          }}
         >
           <span>Add Animals</span>
         </Button>
@@ -96,6 +108,7 @@ const Animals = () => {
         >
           <div className="form__input">
             <NameInput
+              ref={nameInputRef}
               value={formData.animalName}
               onChange={
                 (value: string) => { setFormData({ ...formData, animalName: value }); }

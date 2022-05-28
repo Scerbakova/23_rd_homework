@@ -5,6 +5,7 @@ export const animalSlice = createSlice({
   initialState: {
     animals: localStorage.getItem('animals') ? JSON.parse(localStorage.getItem('animals') || '[]') : [] as object[],
     input: [] as string[],
+    inputValue: '',
   },
   reducers: {
     addAnimalInfo: (state, action) => {
