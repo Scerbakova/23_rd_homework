@@ -1,17 +1,18 @@
-import { FC } from 'react';
+import { forwardRef } from 'react';
 
 type ImageInputProps = {
   onChange: (value: string) => void,
   value: string,
 }
 
-const ImageInput: FC<ImageInputProps> = ({ onChange, value }) => (
+const ImageInput = forwardRef<HTMLInputElement, ImageInputProps>(({ onChange, value }, ref) => (
   <label htmlFor="image">
     <div className="label">
       Image
     </div>
     <input
       required
+      ref={ref}
       id="image"
       type="text"
       placeholder="Animal Image"
@@ -19,6 +20,6 @@ const ImageInput: FC<ImageInputProps> = ({ onChange, value }) => (
       onChange={(e) => onChange(e.target.value)}
     />
   </label>
-);
+));
 
 export default ImageInput;

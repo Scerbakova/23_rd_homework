@@ -5,7 +5,7 @@ import React, {
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
 import {
-  addAnimalInfo, addInputValueAsOption, filterAnimals,
+  addAnimalInfo, addInputValueAsOption, filterAnimals, getAllBreeds,
 } from '../store/reducers/animalSlice';
 import AnimalCard from './AnimalCard';
 import Button from './Button';
@@ -24,29 +24,27 @@ const initialData = {
 };
 
 const Animals = () => {
+  const breedsInputRef = React.useRef<HTMLInputElement>(null);
+  const nameInputRef = React.useRef<HTMLInputElement>(null);
+  const breedsSelectInputRef = React.useRef<HTMLSelectElement>(null);
+  const imageInputRef = React.useRef<HTMLInputElement>(null);
+
   const [modalActive, setModalActive] = useState(false);
   const [formData, setFormData] = useState(initialData);
+  const [focus, setFocus] = useState(breedsInputRef.current?.focus());
 
   const dispatch = useDispatch<AppDispatch>();
 
   const animals = useSelector((state: RootState) => state.animals.animals);
   const input = useSelector((state: RootState) => state.animals.input);
-
-  const breedsInputRef = React.useRef<HTMLInputElement>(null);
-  const nameInputRef = React.useRef<HTMLInputElement>(null);
-  const breedsSelectInputRef = React.useRef<HTMLSelectElement>(null);
-
-  const breedsArray = animals.map((animal: { animalBreeds: string }) => animal.animalBreeds);
-  const breedsWithoutDuplicates = () => breedsArray.filter(
-    (breed: string, index: number) => breedsArray.indexOf(breed) === index,
-  );
+  const breeds = useSelector((state: RootState) => state.animals.breeds);
 
   useEffect(() => {
     nameInputRef.current?.focus();
   }, [modalActive]);
 
   useEffect(() => {
-    breedsInputRef.current?.focus();
+    dispatch(getAllBreeds());
   }, []);
 
   return (
@@ -56,13 +54,15 @@ const Animals = () => {
         {localStorage.length > 0 && (
         <button
           className="button"
-          onClick={() => { window.location.reload(); }}
+          onClick={() => {
+            dispatch(filterAnimals('All Breeds'));
+          }}
         >
           All Breeds
 
         </button>
         )}
-        {animals && breedsWithoutDuplicates().map((breed: string) => (
+        {animals && breeds.map((breed: string) => (
           <div key={Math.random()}>
             <button
               onClick={() => {
@@ -92,6 +92,7 @@ const Animals = () => {
         <Button
           onAdd={() => {
             setModalActive(true);
+            setFormData(initialData);
           }}
         >
           <span>Add Animals</span>
@@ -117,6 +118,7 @@ const Animals = () => {
           </div>
           <div className="form__input">
             <ImageInput
+              ref={imageInputRef}
               value={formData.animalImage}
               onChange={
               (value: string) => { setFormData({ ...formData, animalImage: value }); }
@@ -134,6 +136,7 @@ const Animals = () => {
                 if (breedsSelectInputRef.current) {
                   breedsSelectInputRef.current.className = 'hidden';
                 }
+                setFocus(focus);
               }}
               className="add__breeds"
             >
