@@ -27,7 +27,6 @@ const Animals = () => {
   const breedsInputRef = React.useRef<HTMLInputElement>(null);
   const nameInputRef = React.useRef<HTMLInputElement>(null);
   const breedsSelectInputRef = React.useRef<HTMLSelectElement>(null);
-  const imageInputRef = React.useRef<HTMLInputElement>(null);
 
   const [modalActive, setModalActive] = useState(false);
   const [formData, setFormData] = useState(initialData);
@@ -41,11 +40,8 @@ const Animals = () => {
 
   useEffect(() => {
     nameInputRef.current?.focus();
-  }, [modalActive]);
-
-  useEffect(() => {
     dispatch(getAllBreeds());
-  }, []);
+  }, [modalActive]);
 
   return (
     <div className="animal__wrapper">
@@ -118,7 +114,6 @@ const Animals = () => {
           </div>
           <div className="form__input">
             <ImageInput
-              ref={imageInputRef}
               value={formData.animalImage}
               onChange={
               (value: string) => { setFormData({ ...formData, animalImage: value }); }

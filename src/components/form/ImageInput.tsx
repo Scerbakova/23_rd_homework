@@ -5,14 +5,13 @@ type ImageInputProps = {
   value: string,
 }
 
-const ImageInput = forwardRef<HTMLInputElement, ImageInputProps>(({ onChange, value }, ref) => (
+const ImageInput = forwardRef<HTMLInputElement, ImageInputProps>(({ onChange, value }) => (
   <label htmlFor="image">
     <div className="label">
       Image
     </div>
     <input
       required
-      ref={ref}
       id="image"
       type="text"
       placeholder="Animal Image"
