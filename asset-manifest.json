@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ReduxAnimals/static/css/main.42272508.css",
-    "main.js": "/ReduxAnimals/static/js/main.86af061c.js",
-    "static/js/787.dc822e54.chunk.js": "/ReduxAnimals/static/js/787.dc822e54.chunk.js",
-    "index.html": "/ReduxAnimals/index.html",
-    "main.42272508.css.map": "/ReduxAnimals/static/css/main.42272508.css.map",
-    "main.86af061c.js.map": "/ReduxAnimals/static/js/main.86af061c.js.map",
-    "787.dc822e54.chunk.js.map": "/ReduxAnimals/static/js/787.dc822e54.chunk.js.map"
+    "main.css": "/redux_animals/static/css/main.42272508.css",
+    "main.js": "/redux_animals/static/js/main.25f3c63c.js",
+    "static/js/787.dc822e54.chunk.js": "/redux_animals/static/js/787.dc822e54.chunk.js",
+    "index.html": "/redux_animals/index.html",
+    "main.42272508.css.map": "/redux_animals/static/css/main.42272508.css.map",
+    "main.25f3c63c.js.map": "/redux_animals/static/js/main.25f3c63c.js.map",
+    "787.dc822e54.chunk.js.map": "/redux_animals/static/js/787.dc822e54.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.42272508.css",
-    "static/js/main.86af061c.js"
+    "static/js/main.25f3c63c.js"
   ]
 }
