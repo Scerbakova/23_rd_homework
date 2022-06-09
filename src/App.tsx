@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.scss';
 import Animals from './components/Animals';
 
@@ -6,7 +6,7 @@ const App = () => (
   <div className="app">
     <Router>
       <Routes>
-        <Route path="/redux_animals" element={<Animals />} />
+        <Route path="/" element={<Animals />} />
       </Routes>
     </Router>
   </div>
