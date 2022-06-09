@@ -1,7 +1,7 @@
 {
   "name": "react-boilerplate",
   "version": "0.1.0",
-  "homepage": "https://scerbakova.github.io/redux_animals/",
+  "homepage": "https://scerbakova.github.io/redux_animals",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
